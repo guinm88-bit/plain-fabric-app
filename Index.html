@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Plain Fabric Yarn Calculator</title>
+
+  <link rel="manifest" href="manifest.json">
+  <meta name="theme-color" content="#ffffff">
+</head>
+<body>
+
+<h2>Plain Fabric Yarn Calculator</h2>
+
+<label>Fabric Width (inches)</label><br>
+<input type="number" id="width"><br><br>
+
+<label>RPI (Threads per inch)</label><br>
+<input type="number" id="rpi"><br><br>
+
+<label>Fabric Length</label><br>
+<input type="number" id="length"><br><br>
+
+<label>Yarn Length per Hank</label><br>
+<input type="number" id="yarn"><br><br>
+
+<button onclick="calculate()">Calculate</button>
+
+<h3 id="output"></h3>
+
+<script src="script.js"></script>
+
+<script>
+  if ("serviceWorker" in navigator) {
+    navigator.serviceWorker.register("service-worker.js");
+  }
+</script>
+
+</body>
+</html>

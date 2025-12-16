@@ -1,0 +1,8 @@
+{
+  "name": "Plain Fabric Yarn Calculator",
+  "short_name": "FabricCalc",
+  "start_url": "index.html",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#ffffff"
+}
