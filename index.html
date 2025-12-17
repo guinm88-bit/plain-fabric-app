@@ -3,31 +3,87 @@
 <head>
   <title>Plain Fabric Yarn Calculator</title>
 
+  <!-- PWA -->
   <link rel="manifest" href="manifest.json">
   <meta name="theme-color" content="#ffffff">
+
+  <!-- Mobile zoom fix (MOST IMPORTANT) -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- App-like UI styling -->
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 16px;
+      background: #ffffff;
+    }
+
+    h2 {
+      text-align: center;
+      margin-bottom: 24px;
+    }
+
+    label {
+      font-size: 16px;
+      font-weight: 600;
+      display: block;
+      margin-bottom: 6px;
+    }
+
+    input {
+      width: 100%;
+      font-size: 18px;
+      padding: 12px;
+      margin-bottom: 18px;
+      box-sizing: border-box;
+    }
+
+    button {
+      width: 100%;
+      font-size: 18px;
+      padding: 14px;
+      background: #000000;
+      color: #ffffff;
+      border: none;
+      border-radius: 4px;
+    }
+
+    button:active {
+      opacity: 0.8;
+    }
+
+    #output {
+      margin-top: 24px;
+      font-size: 20px;
+      font-weight: bold;
+      text-align: center;
+    }
+  </style>
 </head>
+
 <body>
 
 <h2>Plain Fabric Yarn Calculator</h2>
 
-<label>Fabric Width (inches)</label><br>
-<input type="number" id="width"><br><br>
+<label>Fabric Width (inches)</label>
+<input type="number" id="width" inputmode="decimal">
 
-<label>RPI (Threads per inch)</label><br>
-<input type="number" id="rpi"><br><br>
+<label>RPI (Threads per inch)</label>
+<input type="number" id="rpi" inputmode="decimal">
 
-<label>Fabric Length</label><br>
-<input type="number" id="length"><br><br>
+<label>Fabric Length</label>
+<input type="number" id="length" inputmode="decimal">
 
-<label>Yarn Length per Hank</label><br>
-<input type="number" id="yarn"><br><br>
+<label>Yarn Length per Hank</label>
+<input type="number" id="yarn" inputmode="decimal">
 
 <button onclick="calculate()">Calculate</button>
 
-<h3 id="output"></h3>
+<div id="output"></div>
 
 <script src="script.js"></script>
 
+<!-- Service Worker -->
 <script>
   if ("serviceWorker" in navigator) {
     navigator.serviceWorker.register("service-worker.js");
