@@ -1,58 +1,42 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>Plain Fabric Yarn Calculator</title>
+  <meta charset="UTF-8">
+  <title>App-1</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
 
-  <!-- PWA -->
-  <link rel="manifest" href="manifest.json">
-  <meta name="theme-color" content="#ffffff">
+<h2>App-1: Simple Yarn & Fabric Costing</h2>
 
-  <!-- Mobile zoom fix (MOST IMPORTANT) -->
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<div class="section">
+  <label>Fabric Length (meters):</label>
+  <input type="number" id="fabricLength" value="50">
+</div>
 
-  <!-- App-like UI styling -->
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      padding: 16px;
-      background: #ffffff;
-    }
+<div class="section">
+  <label>EPI:</label>
+  <input type="number" id="epi" value="80">
+</div>
 
-    h2 {
-      text-align: center;
-      margin-bottom: 24px;
-    }
+<h3>Colour-wise Design</h3>
 
-    label {
-      font-size: 16px;
-      font-weight: 600;
-      display: block;
-      margin-bottom: 6px;
-    }
+<table id="designTable">
+  <tr>
+    <th>Colour</th>
+    <th>Width (cm)</th>
+    <th>Yarn Length per Hank (m)</th>
+    <th>Wastage %</th>
+    <th>Hanks Needed</th>
+  </tr>
+</table>
 
-    input {
-      width: 100%;
-      font-size: 18px;
-      padding: 12px;
-      margin-bottom: 18px;
-      box-sizing: border-box;
-    }
+<button onclick="addRow()">Add Colour</button>
+<button onclick="calculate()">Calculate Yarn</button>
 
-    button {
-      width: 100%;
-      font-size: 18px;
-      padding: 14px;
-      background: #000000;
-      color: #ffffff;
-      border: none;
-      border-radius: 4px;
-    }
+<hr>
 
-    button:active {
-      opacity: 0.8;
-    }
-
-    <h3>Costing</h3>
+<h3>Costing</h3>
 
 <div class="section">
   <label>Dyeing charge (₹ per hank):</label>
@@ -73,44 +57,6 @@
 
 <h3 id="costResult"></h3>
 
-    #output {
-      margin-top: 24px;
-      font-size: 20px;
-      font-weight: bold;
-      text-align: center;
-    }
-  </style>
-</head>
-
-<body>
-
-<h2>Plain Fabric Yarn Calculator</h2>
-
-<label>Fabric Width (inches)</label>
-<input type="number" id="width" inputmode="decimal">
-
-<label>RPI (Threads per inch)</label>
-<input type="number" id="rpi" inputmode="decimal">
-
-<label>Fabric Length</label>
-<input type="number" id="length" inputmode="decimal">
-
-<label>Yarn Length per Hank</label>
-<input type="number" id="yarn" inputmode="decimal">
-
-<button onclick="calculate()">Calculate</button>
-
-<div id="output"></div>
-
-<script src="script.js"></script>
-
-<!-- Service Worker -->
-<script>
-  if ("serviceWorker" in navigator) {
-    navigator.serviceWorker.register("service-worker.js");
-  }
-</script>
-
+<script src="app.js"></script>
 </body>
 </html>
-
